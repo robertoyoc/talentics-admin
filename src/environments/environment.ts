@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyAnNXVWNasRZdE2eNtto9pbBWka6klaPGk',
+    authDomain: 'talentics-admin.firebaseapp.com',
+    databaseURL: 'https://talentics-admin.firebaseio.com',
+    projectId: 'talentics-admin',
+    storageBucket: 'talentics-admin.appspot.com',
+    messagingSenderId: '187710086099'
+  }
 };
 
 /*
