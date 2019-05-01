@@ -11,6 +11,8 @@ import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { LogoutComponent } from './routes/logout/logout.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+
 
 
 @NgModule({
@@ -25,9 +27,14 @@ import { AngularFireModule } from '@angular/fire';
     MatIconModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: FirestoreSettingsToken, useValue: {} }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
