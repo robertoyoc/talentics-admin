@@ -1,0 +1,28 @@
+<div fxLayout="column">
+    <div fxLayout="row" fxFlex="50px">
+      <div fxFlex="100" >
+        Borrar elemento
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <p style="margin-top:0">
+          ¿Estás seguro de borrar el item con ID <strong>{{data.itemID}}</strong>?
+        </p>
+        <mat-form-field style="width:100%">
+          <input matInput placeholder="Escribe el id para borrar" [(ngModel)]="itemID">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100" fxLayoutAlign="end">
+        <button mat-raised-button (click)="closeModal()">
+          Cancelar
+        </button>
+        <button fxFlexOffset="10px" mat-raised-button color="primary" [disabled]="disableAdd" (click)="closeAndDelete()">
+          <p style="margin:0">Borrar</p>
+        </button>
+      </div>
+    </div>
+  </div>
+  
