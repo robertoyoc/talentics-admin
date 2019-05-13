@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./compose.component.css']
 })
 export class ComposeComponent implements OnInit {
-
+  item: Kit;
   form: FormGroup;
   collection: AngularFirestoreCollection<Kit>;
 
@@ -22,12 +22,13 @@ export class ComposeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const item = {} as Kit;
+    this.item = this.route.snapshot.data.item || {};
     this.form = new FormGroup({
-      nombre: new FormControl(item.nombre, [Validators.required]),
-      precio: new FormControl(item.precio, [Validators.required]),
-      fechaRegistro: new FormControl(item.fechaRegistro, [Validators.required]),
-      descripcion: new FormControl(item.descripcion, [Validators.required])
+      nombre: new FormControl(this.item.nombre, [Validators.required]),
+      precio: new FormControl(this.item.precio, [Validators.required]),
+      fechaRegistro: new FormControl(this.item.fechaRegistro, [Validators.required]),
+      descripcion: new FormControl(this.item.descripcion, [Validators.required]),
+      id: new FormControl(this.item.id)
     });
     if (this.form.controls.fechaRegistro.invalid) {
       this.form.controls.fechaRegistro.setValue(Date.now());
@@ -37,8 +38,19 @@ export class ComposeComponent implements OnInit {
   }
 
   create() {
-    this.collection.add(this.form.value);
-    this.router.navigateByUrl('../')
+    if (this.form.dirty && this.form.controls.id.value) {
+      this.update();
+    } else {
+      const id = this.db.createId();
+      this.form.controls.id.setValue(id);
+      this.collection.doc(this.form.controls.id.value).set(this.form.value);
+      this.router.navigateByUrl('../');
+    }
+  }
+  update() {
+    console.log(this.form.value);
+    this.collection.doc(this.form.controls.id.value).set(this.form.value);
+    this.router.navigateByUrl('../');
   }
 
 }

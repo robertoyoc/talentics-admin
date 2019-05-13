@@ -25,6 +25,11 @@
         <div>
             {{this.form.controls.fechaRegistro.value | date:'d/MMM/y h:mm a'}} 
         </div> <br>
-        <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Crear</button>
+        <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">
+            <ng-container *ngIf="item.id">Actualizar</ng-container>
+            <ng-container *ngIf="!item.id">Crear</ng-container>
+
+        </button>
+        <button type="button" fxFlexOffset="10px" mat-raised-button color="warn" routerLink="./../" >Cancelar</button>
     </form>
 </div>
