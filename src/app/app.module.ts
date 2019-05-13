@@ -12,6 +12,9 @@ import { LogoutComponent } from './routes/logout/logout.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { LoginComponent } from './routes/login/login.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ComponentsModule } from './components/components.module';
 
 
 
@@ -19,7 +22,8 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
   declarations: [
     AppComponent,
     DashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,13 +32,16 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-
+    ComponentsModule,
     AppRoutingModule
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} }
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ConfirmComponent
+  ]
 })
 export class AppModule { }
