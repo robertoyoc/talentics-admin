@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { Kit } from 'src/app/models/kit';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.db.collection<Kit>('kits').valueChanges().subscribe((items: Kit[]) => {
       this.setData(items);
     });
@@ -35,7 +34,6 @@ export class DashboardComponent implements OnInit {
       id: 'nombre',
       start: 'asc'
     });
-    
   }
   setData(items: Kit[]) {
     this.dataSource = new MatTableDataSource(items);
