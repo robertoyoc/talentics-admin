@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
 import { LoginComponent } from './routes/login/login.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ComponentsModule } from './components/components.module';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './routes/register/register.component';
 
 
 
@@ -23,15 +26,22 @@ import { ComponentsModule } from './components/components.module';
     AppComponent,
     DashboardComponent,
     LogoutComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     ComponentsModule,
     AppRoutingModule
   ],
