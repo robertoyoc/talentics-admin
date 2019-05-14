@@ -1,0 +1,11 @@
+.atributo{
+  font-weight: bold;
+}
+
+.atributo-container{
+  margin-top: 40px;
+}
+
+.atributo-container:first-child{
+  margin-top: none;
+}

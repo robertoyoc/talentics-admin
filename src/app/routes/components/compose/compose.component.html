@@ -1,10 +1,7 @@
-<div class="parent">
-
-
+<div class="parent" style="margin: 0 auto; width: 400px">
     <h1>Nuevo Componente</h1>
 
-
-    <form [formGroup]="form" fxLayout="column" (submit)="create()" style="width:300px">
+    <form [formGroup]="form" fxLayout="column" (submit)="create()" style="width:100%">
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Nombre" formControlName="nombre" ngDefaultControl>
             <mat-error>Requerido</mat-error>

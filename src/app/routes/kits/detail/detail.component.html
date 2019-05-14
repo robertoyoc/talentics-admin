@@ -1,4 +1,4 @@
-<div fxLayout="column" style="margin:20px">
+<div class="detail-card" fxLayout="column" style="margin:20px auto 0 auto; max-width: 900px;">
   <div fxLayout="row">
     <h2 fxFlex="50">Kit {{item.nombre}}</h2>
     <div fxFlex="50" fxLayoutAlign="end end">
@@ -6,22 +6,24 @@
       <button mat-raised-button color="warn" fxFlexOffset="10px" (click)="delete()">Borrar</button>
     </div>
   </div>
-  <div>
-    <h3>Precio</h3>
-    <h6>$ {{item.precio}}</h6>
-  </div>
-  <div>
-    <h3>Descripción</h3>
-    <h6>{{item.descripcion}}</h6>
-  </div>
-  <div>
-    <h3>Fecha de creación</h3>
-    <h6>{{item.fechaRegistro | date:'d/MMM/y h:mm a'}} </h6>
-  </div>
-  <div>
-    <h3>Manual</h3>
-    <h6 *ngIf="item.manual" ><a target="_blank" href="{{item.manual}}">Ver manual</a> </h6>
-    <input type="file"  accept=".pdf" (change)="upload($event)">
+  <div style="margin-left: 30px">
+    <div class="atributo-container">
+      <p class="atributo">Precio</p>
+      <p>$ {{item.precio}}</p>
+    </div>
+    <div class="atributo-container">
+      <p class="atributo">Descripción</p>
+      <p>{{item.descripcion}}</p>
+    </div>
+    <div class="atributo-container">
+      <p class="atributo">Fecha de creación</p>
+      <p>{{item.fechaRegistro | date:'d/MMM/y h:mm a'}} </p>
+    </div>
+    <div class="atributo-container">
+      <p class="atributo">Manual</p>
+      <p *ngIf="item.manual" ><a target="_blank" href="{{item.manual}}">Ver manual</a> </p>
+      <input type="file"  accept=".pdf" (change)="upload($event)">
+    </div>
   </div>
 
 
