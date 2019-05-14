@@ -1,10 +1,10 @@
 <div class="container" fxLayout="column">
   <div *ngIf="authService.user | async as user" fxLayout="row" fxLayoutAlign="center center" class="primary-bg">
     <div fxFlex="30" fxLayoutAlign="start center" >
-      <img src="/assets/img/logo.png" width="80px">
+      <img src="/assets/img/logo.png" width="80px" style="cursor:pointer">
     </div>
     <div fxFlex="40" fxLayoutAlign="center center" routerLink="/dashboard">
-      <h1 class="margin-10">
+      <h1 class="margin-10" style="cursor:pointer;">
         Talentics Admin
       </h1>
     </div>
