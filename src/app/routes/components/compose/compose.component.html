@@ -1,3 +1,35 @@
-<p>
-  compose works!
-</p>
+<div class="parent">
+
+
+    <h1>Nuevo Componente</h1>
+
+
+    <form [formGroup]="form" fxLayout="column" (submit)="create()" style="width:300px">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre" formControlName="nombre" ngDefaultControl>
+            <mat-error>Requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+
+            <textarea matInput placeholder="Descripción" formControlName="descripcion" ngDefaultControl></textarea>
+            <mat-error>Requerido</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+
+            <input matInput placeholder="Precio" type="number" min="1" step="any" formControlName="precio" ngDefaultControl>
+            <mat-error>Requerido</mat-error>
+        </mat-form-field>
+        <label>Registrado</label>
+        <div>
+            {{this.form.controls.fechaRegistro.value | date:'d/MMM/y h:mm a'}} 
+        </div> <br>
+        <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">
+            <ng-container *ngIf="item.id">Actualizar</ng-container>
+            <ng-container *ngIf="!item.id">Crear</ng-container>
+
+        </button>
+        <button type="button" fxFlexOffset="10px" mat-raised-button color="warn" routerLink="./../" >Cancelar</button>
+    </form>
+</div>
