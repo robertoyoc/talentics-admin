@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { ComponentsModule } from './components/components.module';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './routes/register/register.component';
+import { ForgotComponent } from './routes/forgot/forgot.component';
+import { ResetComponent } from './routes/reset/reset.component';
 
 
 
@@ -27,7 +29,9 @@ import { RegisterComponent } from './routes/register/register.component';
     DashboardComponent,
     LogoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { RegisterComponent } from './routes/register/register.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

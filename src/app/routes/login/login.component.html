@@ -17,7 +17,7 @@
         <ng-container *ngIf="!isWorking"> Entrar</ng-container>
       </button>
       <a fxFlexOffset="5px" routerLink="/register">Registrarte</a>
-      <a fxFlexOffset="5px" routerLink="/register">¿Olvidaste tu contraseña?</a>
+      <a fxFlexOffset="5px" [routerLink]="['./../forgot']" [queryParams]="{email: form.controls.email.value}">¿Olvidaste tu contraseña?</a>
     </form>
 
   </div>

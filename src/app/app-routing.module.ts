@@ -9,6 +9,8 @@ import { LogoutGuard } from './guards/logout/logout.guard';
 import { LoginGuard } from './guards/login/login.guard';
 import { RegisterGuard } from './guards/register/register.guard';
 import { RegisterComponent } from './routes/register/register.component';
+import { ForgotComponent } from './routes/forgot/forgot.component';
+import { ResetComponent } from './routes/reset/reset.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,16 @@ const routes: Routes = [
     path: 'login',
     canActivate: [LoginGuard],
     component: LoginComponent
+  },
+  {
+    path: 'forgot',
+    canActivate: [LoginGuard],
+    component: ForgotComponent
+  },
+  {
+    path: 'change',
+    canActivate: [LoginGuard],
+    component: ResetComponent
   },
   {
     path: 'logout',

@@ -8,8 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AppComponent {
   constructor(
-    private authService: AngularFireAuth
-
+    public authService: AngularFireAuth
   ) {
 
   }
