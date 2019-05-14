@@ -1,24 +1,34 @@
-<div fxLayout="column" fxLayoutAlign="center center" style="width:100%; height:100%">
-  <h1>Talentics Admin</h1>
-  <h2>Nueva contraseña</h2>
-  <div>
-    <form fxFlex="400px" fxLayout="column" fxLayoutAlign="center center" (submit)="reset()" [formGroup]="form">
-      <mat-form-field style="width:100%" fxFlexOffset="10px">
-        <input matInput type="password" placeholder="Password" formControlName="password" ng-default-control>
-        <mat-error *ngIf="form.controls.password.hasError('required')">Requerido</mat-error>
-      </mat-form-field>
-      <mat-form-field style="width:100%" fxFlexOffset="10px">
-        <input matInput type="password" placeholder="Confirmar password" formControlName="confirm" ng-default-control>
-        <mat-error *ngIf="form.controls.confirm.hasError('required')">Requerido</mat-error>
-        <mat-error *ngIf="form.controls.confirm.hasError('match')&&!form.controls.password.hasError('required')">Las
-          contraseñas no coinciden</mat-error>
-      </mat-form-field>
+<div fxLayout="column" fxLayoutAlign="flex-start center" style="width:100%; min-height:100vh">
+    <div class="title-bar" fxLayout="column" fxLayoutAlign="center center">
+      <h1>Talentics Admin</h1>
+    </div>
+    <div fxFlex fxLayoutAlign="center center">
+      <form fxFlex="400px" fxLayout="column" fxLayoutAlign="space-between center" (submit)="reset()" [formGroup]="form" style="border: 3px #38acda solid; width: 400px; padding-bottom: 20px; min-height: 450px">
+        <div class="title-bar" style="text-align: center; margin-bottom: 20px">
+          <h2>Nueva contraseña</h2>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="center center" style="min-width: 300px;">
+          <mat-form-field style="width:100%" fxFlexOffset="10px">
+            <input matInput type="password" placeholder="Password" formControlName="password" ng-default-control>
+            <mat-error *ngIf="form.controls.password.hasError('required')">Requerido</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width:100%" fxFlexOffset="10px">
+            <input matInput type="password" placeholder="Confirmar password" formControlName="confirm" ng-default-control>
+            <mat-error *ngIf="form.controls.confirm.hasError('required')">Requerido</mat-error>
+            <mat-error *ngIf="form.controls.confirm.hasError('match')&&!form.controls.password.hasError('required')">Las
+              contraseñas no coinciden</mat-error>
+          </mat-form-field>
+        </div>
       <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid||isWorking">
 
         <ng-container *ngIf="isWorking">Trabajando</ng-container>
         <ng-container *ngIf="!isWorking"> Completado</ng-container>
       </button>
-      <a fxFlexOffset="5px" routerLink="/login">Iniciar sesión</a>
+      
+      <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px">
+        <a class="link" fxFlexOffset="5px" routerLink="/login">Iniciar sesión</a>
+      </div>
     </form>
 
   </div>
