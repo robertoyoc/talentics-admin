@@ -1,0 +1,15 @@
+.title-bar{
+  background-color: #38acda;
+  width: 100%;
+  color: white;
+}
+
+.link{
+  color: #3122b1;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.link:hover{
+  color: #41d5e0;
+}
