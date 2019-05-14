@@ -17,7 +17,7 @@ export class LoginGuard implements CanActivate {
     return new Observable((obs) => {
       this.authService.user.subscribe((user) => {
         if (user) {
-          this.router.navigateByUrl('kits');
+          this.router.navigateByUrl('dashboard');
           obs.next(false);
         } else {
           obs.next(true);

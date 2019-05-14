@@ -40,7 +40,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: 'kits'
+    redirectTo: 'dashboard'
   }
 
 ];

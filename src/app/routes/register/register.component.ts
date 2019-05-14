@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.authService.auth.createUserWithEmailAndPassword(this.form.controls.email.value, this.form.controls.password.value).then(() => {
       this.isWorking = false;
-      this.router.navigateByUrl('kits');
+      this.router.navigateByUrl('dashboard');
     }).catch((error) => {
       this.isWorking = false;
       console.log(error);

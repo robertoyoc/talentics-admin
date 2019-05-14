@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.isWorking = true;
     this.authService.auth.signInWithEmailAndPassword(this.form.controls.email.value, this.form.controls.password.value).then(() => {
       this.isWorking = false;
-      this.router.navigateByUrl('kits');
+      this.router.navigateByUrl('dashboard');
     }).catch((error) => {
       this.isWorking = false;
       console.log(error);
