@@ -50,6 +50,11 @@ const routes: Routes = [
     loadChildren: './routes/kits/kits.module#KitsModule',
   },
   {
+    path: 'components',
+    canActivate: [AuthenticatedGuard],
+    loadChildren: './routes/components/components.module#ComponentsModule',
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'dashboard'
