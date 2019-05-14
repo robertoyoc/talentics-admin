@@ -18,6 +18,11 @@
     <h3>Fecha de creación</h3>
     <h6>{{item.fechaRegistro | date:'d/MMM/y h:mm a'}} </h6>
   </div>
-  
+  <div>
+    <h3>Manual</h3>
+    <h6 *ngIf="item.manual" ><a target="_blank" href="{{item.manual}}">Ver manual</a> </h6>
+    <input type="file"  accept=".pdf" (change)="upload($event)">
+  </div>
+
 
 </div>

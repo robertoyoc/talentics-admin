@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component as Model } from 'src/app/models/component';
+import { Componente as Model } from 'src/app/models/componente';
 import { MatDialog } from '@angular/material';
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
 import { AngularFirestore } from '@angular/fire/firestore';

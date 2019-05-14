@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Component as Model} from 'src/app/models/component';
+import { Componente as Model} from 'src/app/models/componente';
 import { Observable } from 'rxjs';
 import { MatTableDataSource, MatPaginator, MatSort, MatSortable } from '@angular/material';
 import { AngularFirestore } from '@angular/fire/firestore';

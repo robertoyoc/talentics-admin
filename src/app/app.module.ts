@@ -20,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './routes/register/register.component';
 import { ForgotComponent } from './routes/forgot/forgot.component';
 import { ResetComponent } from './routes/reset/reset.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 
 
 
@@ -47,6 +49,7 @@ import { ResetComponent } from './routes/reset/reset.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     ComponentsModule,
     AppRoutingModule
   ],

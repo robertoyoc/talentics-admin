@@ -5,4 +5,5 @@ export class Kit {
     precio: number;
     fechaRegistro: number;
     descripcion: string;
+    manual: string;
 }
