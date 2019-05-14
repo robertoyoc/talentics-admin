@@ -1,4 +1,4 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import './theme.css';
 html{
     height: 100%;
     width: 100%;
@@ -7,6 +7,7 @@ body{
     margin: 0;
     width: 100%;
     height: 100%;
+    font-family: 'Stylish', sans-serif!important;
 }
 .container{
     width: 100%;
