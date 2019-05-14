@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Kit } from 'src/app/models/kit';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-compose',
@@ -18,7 +19,9 @@ export class ComposeComponent implements OnInit {
   constructor(
     private db: AngularFirestore,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AngularFireAuth
+
   ) { }
 
   ngOnInit() {
@@ -41,15 +44,35 @@ export class ComposeComponent implements OnInit {
     if (this.form.dirty && this.form.controls.id.value) {
       this.update();
     } else {
-      const id = this.db.createId();
+      let id = this.db.createId();
       this.form.controls.id.setValue(id);
       this.collection.doc(this.form.controls.id.value).set(this.form.value);
+      this.authService.user.subscribe((user) => {
+        id = this.db.createId();
+        const change = {
+          id: id,
+          mensaje: `El usuario ${user.email} ha creado el kit ${this.form.value.nombre}`,
+          fechaCambio: Date.now(),
+          usuario: user.email
+        };
+        this.db.collection('changes').doc(id).set(change);
+      });
       this.router.navigateByUrl('../');
     }
   }
   update() {
-    console.log(this.form.value);
+
     this.collection.doc(this.form.controls.id.value).set(this.form.value);
+    this.authService.user.subscribe((user) => {
+      const id = this.db.createId();
+      const change = {
+        id: id,
+        mensaje: `El usuario ${user.email} ha actualizado el kit ${this.form.value.nombre}`,
+        fechaCambio: Date.now(),
+        usuario: user.email
+      };
+      this.db.collection('changes').doc(id).set(change);
+    });
     this.router.navigateByUrl('../');
   }
 

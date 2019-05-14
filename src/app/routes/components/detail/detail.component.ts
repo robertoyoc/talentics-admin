@@ -4,6 +4,7 @@ import { Component as Model } from 'src/app/models/component';
 import { MatDialog } from '@angular/material';
 import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +18,9 @@ export class DetailComponent implements OnInit {
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private db: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private authService: AngularFireAuth
+
   ) { }
 
   ngOnInit() {
@@ -33,6 +36,16 @@ export class DetailComponent implements OnInit {
       if (result) {
         this.db.collection('components').doc(this.item.id).delete().then(() => {
           this.router.navigateByUrl('../');
+        });
+        this.authService.user.subscribe((user) => {
+          const id = this.db.createId();
+          const change = {
+            id: id,
+            mensaje: `El usuario ${user.email} ha borrado el componente ${this.item.nombre}`,
+            fechaCambio: Date.now(),
+            usuario: user.email
+          };
+          this.db.collection('changes').doc(id).set(change);
         });
       }
     });
